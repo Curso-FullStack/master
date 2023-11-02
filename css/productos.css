@@ -1,0 +1,84 @@
+/* RESETEO DE CSS: BORRAR ESTILOS POR DEFECTOS DEL NAVEGADOR
+* -> PARA APLICAR A TODAS LAS ETIQUETAS*/ 
+*{
+margin: 0;
+padding: 0;
+}
+
+body{
+background-color: antiquewhite;
+
+
+}
+
+ul{ /* para mostrar en row los elementos del nav */
+display: flex;
+justify-content: space-between;/* autoseparar */
+justify-content: space-around;
+}
+
+
+li{
+list-style: none;
+margin: 10px;
+padding: 10px;
+border: solid 1px black;
+width: 150px;
+background: gainsboro;
+}
+
+div {
+border:solid 1px black;
+width: 750px;
+padding: 35px;
+margin-left: 40px;
+text-align: center;
+
+}  
+
+/* Estrategia 1 */
+.padre{
+border: solid 1px rgb(206, 150, 150);
+display: flex; /* "organiza tus elementos de modo flex" */
+
+flex-direction: colum-reverse; /* colum-revers invierte el orden de las etiquetas hijo */
+flex-wrap: wrap; /* pegar salto de linea cuando sepa que no entra otro elemento*/ 
+justify-content: center;
+
+
+}
+
+button{
+margin-top: 10px;
+
+
+
+}
+
+
+
+/* TODOS LOS ELEMENTOS a Que estan dentro de un button */
+
+button a {
+text-decoration: none;
+color: black;
+
+}
+
+
+buton:hover{
+background: green;
+color: white;
+}
+
+h3,h4{
+    display: flex;
+    margin: 10px;
+    justify-content: center;}
+
+
+
+
+
+
+
