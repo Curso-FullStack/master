@@ -86,6 +86,13 @@ const calculoDeuda = (saldo, compra) => {
     return saldo - compra;
 }
 
-console.log(calculoDeuda(1000,700
-    ));
+console.log(calculoDeuda(1000,700));
 
+//DURANTE EL COMPILADO LAS VARIABLES LET Y CONST NO SE EXPERIMENTAN UN IZAMIENTO
+//UN IZAMIENTO ES DURANTE EL COMPILADO SUBIR LAS COSAS "IMPORTANTES"
+
+
+let titulo = document.getElementById(`titulo`);
+
+
+function saludar(nombre){titulo.style.color = `green`};

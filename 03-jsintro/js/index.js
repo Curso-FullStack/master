@@ -63,7 +63,7 @@ console.log(resultado);
 
 
 /*
-LOGICOS
+
 AND (&&):
 
 Devuelve true si ambos operandos son true.
