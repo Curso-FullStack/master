@@ -1,98 +1,116 @@
-//DEFINICION DE FUNCIONES NATIVAS -> ES5 VERSION JS
+var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
 
-/* SINTAXIS
-function name(params) {
+function guardarDatos() {
+    let dni = 123456;
+    let nombre = "Juan";
+
+    console.log(`Tus datos son: ${dni} ${nombre} y han sido guardados en la database`);
+}
+
+
+function dameResultado(a, b) {
+    let resultado = a + b;
+    console.log(resultado);
+}
+
+let resultado = 5 + 6;
+
+guardarDatos();
+dameResultado(5, 6);
+dameResultado(10, 89);
+dameResultado(20, 91); 
+
+/* 
+resultado = 10 + 89;
+console.log(resultado);
+
+resultado = 18 + 890;
+console.log(resultado); 
+*/
+
+
+//ES5
+
+function login(email, password, facial) {
+
+    let respuesta = ''
+    
+    if(email == 'pepe@gmail.com' && password == '123456' && facial == true){//&& => true
+        
+        respuesta = 'bienvenido a la app';
+        console.log('1. bienvenido a la app'); 
+        //return respuesta;
+        
+
+    }else{
+
+        respuesta = 'no tienes acceso a la app';
+        //return respuesta;
+        console.log('no tienes acceso a la app');
+    }
+
+
+}
+
+
+login('pepe@gmail.com', '123456', true);
+login('pepe@gmail.com', '12545644', true);
+
+
+
+//callback
+function validacion(token, callback) {
+
+    console.log(`el token es: ${token} y es válido para el acceso a la red`);
+
+    email = 'pepe@gmail.com'
+    password = '123456'
+    facial = true
+
+    callback(email, password, facial);
+
+    guardarDatos();
     
 }
 
-*/
+validacion(token, login);
 
-//definicion
-function guardarDatos() {
-    let dni = 44671942;
-    let nombreApellido = `Aaron Chiappella`;
+//ES6 => arrow function
+const calculoSaldo = function(saldo, compra){
+    return saldo - compra;
+};
 
-    //codigo para guardar
-
-    console.log(`Tus datos han sido guardado exitosamente!`);
-}
-
-//invocacion
-guardarDatos();
-
-//la definicion de parametros son locales, es decir solo se usan en la funcion.
-function sumar(num_a, num_b) {
-    console.log(num_a + num_b);
-}
-//UNA FUNCION SIRVE PARA FACTORIZAR UNA OPERACION RECURRENTE
-sumar(1, 3);
+console.log(calculoSaldo(100000, 7500));
 
 
-function login(email, password, facial) {
-    if (email == `aaronchiappella@gmail.com` && password == `1234` && facial == true) {
-        respuesta = `Bienvenido a la app`;
-        // return respuesta; //CORTA LA EJECUCION Y DEVUELVE
-        console.log(`Bienvenido a la app`); //No se devuelve por el return previo
-    } else {
-        respuesta = `No tienes acceso a la app`;
-        // return respuesta;
-        console.log(`No tienes acceso`);
-    }
-}
-
-/*
-//POR POSITIVO
-response = login(`aaronchiappella@gmail.com`,`1234`,true);
-console.log(response);
-
-
-//POR NEGATIVO
-response = login(`aaronchiappella@gmail.com`,`14`,true);
-console.log(response);
-*/
-
-//[[[[Funciones callback]]]] 
-function validacion(token, callback) {
-    console.log(`Token es ${token} y es valido!`);
-    email = `aaronchiappella@gmail.com`;
-    password = `1234`;
-    facial = true;
-    callback(email, password, facial); //funcion que recibe otra funcion como PARAMETROS
-    //CALLBACK SE EJECTURA DENTRO DE VALIDACION
-
-    guardarDatos();
-}
-
-
-validacion(`12345odkans`, login);
-
-
-//funcion nativaa
-function name() {
-
-}
-
-
-//Funcion anonima, no tiene nombre, y toma el nombre de la variable que la contiene
-//al cambiar la variable cambio su identidad 
-const calcularSaldo = function (saldo, compra) {
+const flecha = (saldo, compra) => {
     return saldo - compra;
 }
 
-console.log(calcularSaldo(1000, 700));
+console.log(flecha(100000, 7500));
 
-//arrow function : funcion guardada en una variable.
-const calculoDeuda = (saldo, compra) => {
-    return saldo - compra;
+
+//DOM
+let botonSaludo = document.getElementById('botonSaludo');
+
+console.log(botonSaludo);
+
+botonSaludo.style.background = 'red';
+
+console.log('=======================================================');
+
+let titulo = document.getElementById('titulo');
+
+console.log(titulo);
+
+
+
+function saludar(nombre) {
+    alert(`Hola ${nombre}`);
+    
+    titulo.innerHTML = `Hola ${nombre}`;
+    titulo.style.color = 'green';
+    titulo.style.fontFamily = 'Arial';
+    titulo.style.fontSize = '50px';
+    
 }
-
-console.log(calculoDeuda(1000,700));
-
-//DURANTE EL COMPILADO LAS VARIABLES LET Y CONST NO SE EXPERIMENTAN UN IZAMIENTO
-//UN IZAMIENTO ES DURANTE EL COMPILADO SUBIR LAS COSAS "IMPORTANTES"
-
-
-let titulo = document.getElementById(`titulo`);
-
-
-function saludar(nombre){titulo.style.color = `green`};
